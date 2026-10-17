@@ -1,0 +1,13 @@
+/home/gic-tha-winner/oslab-work/lab1/task2_files
+market.txt
+stone.txt
+This is file market
+This is file stone
+market.txt
+market_copy.txt
+stone.txt
+market.txt
+market_copy.txt
+stone_renamed.txt
+market.txt
+stone_renamed.txt
