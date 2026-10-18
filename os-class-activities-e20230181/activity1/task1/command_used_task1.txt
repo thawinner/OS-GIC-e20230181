@@ -12,3 +12,15 @@ cat output.txt
 ./file_creator_lib > /tmp/lib_term.txt; cp output.txt /tmp/lib_file.txt
 ./file_creator_sys > /tmp/sys_term.txt; cp output.txt /tmp/sys_file.txt
 diff /tmp/lib_term.txt /tmp/sys_term.txt && diff /tmp/lib_file.txt /tmp/sys_file.txt && echo "IDENTICAL"
+
+# Task 1 - Part B: File Reader
+gcc -o file_reader_lib file_reader_lib.c
+./file_reader_lib
+
+gcc -o file_reader_sys file_reader_sys.c
+./file_reader_sys
+
+# Check that both versions give identical output
+./file_reader_lib > /tmp/reader_lib.txt
+./file_reader_sys > /tmp/reader_sys.txt
+diff /tmp/reader_lib.txt /tmp/reader_sys.txt && echo "IDENTICAL"
