@@ -1,0 +1,14 @@
+# Task 1 - Part A: File Creator
+gcc -o file_creator_lib file_creator_lib.c
+./file_creator_lib
+cat output.txt
+
+rm -f output.txt
+gcc -o file_creator_sys file_creator_sys.c
+./file_creator_sys
+cat output.txt
+
+# Check that both versions give identical output
+./file_creator_lib > /tmp/lib_term.txt; cp output.txt /tmp/lib_file.txt
+./file_creator_sys > /tmp/sys_term.txt; cp output.txt /tmp/sys_file.txt
+diff /tmp/lib_term.txt /tmp/sys_term.txt && diff /tmp/lib_file.txt /tmp/sys_file.txt && echo "IDENTICAL"
