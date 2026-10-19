@@ -1,6 +1,6 @@
 # Class Activity 1 — System Calls in Practice
 
-- **Student Name:** [Your Name Here]
+- **Student Name:** THA WINNER
 - **Student ID:** e20230181
 - **Date:** 19 October 2026
 
