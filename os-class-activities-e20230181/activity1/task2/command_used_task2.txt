@@ -1,0 +1,11 @@
+# Task 2: Directory Listing
+gcc -o dir_list_lib dir_list_lib.c
+./dir_list_lib
+
+gcc -o dir_list_sys dir_list_sys.c
+./dir_list_sys
+
+# Check that both versions give identical output
+./dir_list_lib > /tmp/dir_lib.txt
+./dir_list_sys > /tmp/dir_sys.txt
+diff /tmp/dir_lib.txt /tmp/dir_sys.txt && echo "IDENTICAL"
