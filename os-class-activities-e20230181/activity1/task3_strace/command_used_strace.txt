@@ -1,0 +1,18 @@
+# Task 3: strace Analysis
+# All commands were run inside the task1 folder (where the programs are),
+# and the output was saved into ../task3_strace/
+
+# Step 1 - Trace both versions of the file creator (Task 1A)
+strace -e trace=openat,read,write,close ./file_creator_lib 2> ../task3_strace/strace_lib_task1.txt
+strace -e trace=openat,read,write,close ./file_creator_sys 2> ../task3_strace/strace_sys_task1.txt
+
+# Step 2 - Trace both versions of the file reader (Task 1B)
+strace -e trace=openat,read,write,close ./file_reader_lib 2> ../task3_strace/strace_lib_reader.txt
+strace -e trace=openat,read,write,close ./file_reader_sys 2> ../task3_strace/strace_sys_reader.txt
+
+# Step 3 - System call count summary for the file creator
+strace -c ./file_creator_lib 2> ../task3_strace/strace_summary_lib.txt
+strace -c ./file_creator_sys 2> ../task3_strace/strace_summary_sys.txt
+
+# For the screenshots, the same commands were run without "2> file",
+# so the strace output appears on the screen.
