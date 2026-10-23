@@ -1,0 +1,26 @@
+Step 1 (relative destination, from incoming/):
+mv -- "$file1" ../reports/
+
+Step 2 (absolute paths, from lab2/):
+mv -- "$OSLAB_WORKSPACE/lab2/incoming/$file2" "$OSLAB_WORKSPACE/lab2/reports/"
+
+Step 3 (relative paths, from lab2/):
+cp -- "reports/$file1" "reports/$file2" "TechCorp/$owner/"
+
+Step 4 (relative paths, from lab2/):
+cp -- "reports/$file1" "TechCorp/$owner/archive/first-original.txt"
+
+Step 5 (from TechCorp/Support/):
+relative: cat "../$owner/$file1"
+absolute: cat "$OSLAB_WORKSPACE/lab2/TechCorp/$owner/$file1"
+
+Decision: In step 3 I used relative paths, because I was in the lab folder and both reports/ and TechCorp/ were right below it, so the paths were short. An absolute path would be better when I am in a different folder, or when I do not know where I am, because it works from anywhere.
+
+Same commands with the real paths:
+mv -- 'sales north.txt' ../reports/
+mv -- '/home/gic-tha-winner/oslab-work/lab2/incoming/audit notes.txt' '/home/gic-tha-winner/oslab-work/lab2/reports/'
+cat '../Legal/sales north.txt'
+cat '/home/gic-tha-winner/oslab-work/lab2/TechCorp/Legal/sales north.txt'
+
+Error: cat: 'reports/sales north.txt': No such file or directory
+Fix: ../../reports/sales north.txt
