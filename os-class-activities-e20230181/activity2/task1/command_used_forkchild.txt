@@ -1,0 +1,11 @@
+    1  history -w
+    2  history -w
+    3  clear
+    4  ssh gic-tha-winner@ssh2.rathpisey.site
+    5  exit
+    6  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity2/task1
+    7  ls
+    8  gcc -o forkchild forkchild.c
+    9  ./forkchild > result_forkchild.txt 2>&1
+   10  cat result_forkchild.txt
+   11  history | tail -n 20 > command_used_forkchild.txt
