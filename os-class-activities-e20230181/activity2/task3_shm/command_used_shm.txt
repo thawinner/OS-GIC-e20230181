@@ -1,0 +1,20 @@
+  122  grep -n '"OS-' shm-producer.c shm-consumer.c
+  123  ls -l
+  124  clear
+  125  gcc -o shm-producer shm-producer.c -lrt
+  126  gcc -o shm-consumer shm-consumer.c -lrt
+  127  ./shm-producer
+  128  ls -l /dev/shm/
+  129  ./shm-consumer > result-shm-ipc.txt
+  130  cat result-shm-ipc.txt
+  131  ls -l /dev/shm/
+  132  gcc -o shm-producer shm-producer.c -lrt
+  133  gcc -o shm-consumer shm-consumer.c -lrt
+  134  ./shm-producer
+  135  ls -l /dev/shm/
+  136  ./shm-consumer > result-shm-ipc.txt
+  137  cat result-shm-ipc.txt
+  138  ls -l /dev/shm/
+  139  ./shm-consumer
+  140  echo "exit code: $?"
+  141  history | tail -n 20 > command_used_shm.txt
