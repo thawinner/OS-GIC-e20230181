@@ -1,0 +1,20 @@
+  161  ls -l
+  162  gcc -o sender sender.c -lrt
+  163  gcc -o receiver receiver.c -lrt
+  164  ./sender
+  165  ls -l /dev/mqueue/
+  166  cat /dev/mqueue/queue-winner
+  167  ./receiver > result-mq-ipc.txt
+  168  cat result-mq-ipc.txt
+  169  ls -l /dev/mqueue/
+  170  gcc -o sender sender.c -lrt
+  171  gcc -o receiver receiver.c -lrt
+  172  ./sender
+  173  ls -l /dev/mqueue/
+  174  cat /dev/mqueue/queue-winner
+  175  ./receiver > result-mq-ipc.txt
+  176  cat result-mq-ipc.txt
+  177  ls -l /dev/mqueue/
+  178  ./receiver
+  179  echo "exit code: $?"
+  180  history | tail -n 20 > command_used_mq.txt
