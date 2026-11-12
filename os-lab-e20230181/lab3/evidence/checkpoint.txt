@@ -1,0 +1,12 @@
+.:
+total 8
+19143088 drwxrwxr-x 2 gic-tha-winner gic-tha-winner 4096 Nov 12 23:54 links
+19143089 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner   24 Nov 12 23:52 river-old.txt
+
+links:
+total 4
+19143090 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner 16 Nov 12 23:54 first.txt -> ../river-old.txt
+19143089 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 24 Nov 12 23:52 hard.txt
+19143091 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner  9 Nov 12 23:52 second.txt -> first.txt
+checkpoint garden river
+checkpoint garden river

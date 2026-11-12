@@ -1,0 +1,26 @@
+
+=== BEFORE RENAME ===
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-hard.txt
+19143083 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner  9 Nov 12 23:02 tiger-soft.txt -> tiger.txt
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger.txt
+hard: version 306
+soft: version 306
+stored target: tiger.txt
+
+=== AFTER RENAME, BEFORE REPAIR ===
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-hard.txt
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-saved.txt
+19143083 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner  9 Nov 12 23:02 tiger-soft.txt -> tiger.txt
+hard: version 306
+stored target: tiger.txt
+soft: cat: tiger-soft.txt: No such file or directory
+
+=== AFTER REPAIR ===
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-hard.txt
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-saved.txt
+19143083 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner 15 Nov 12 23:31 tiger-soft.txt -> tiger-saved.txt
+stored target: tiger-saved.txt
+hard: version 306
+soft: version 306
+
+Decision: I used a relative target because the link and the report are in the same folder, so if I move the whole lab3 folder they move together and the link still works. If the link stored an absolute path and I moved the folder, it would break because the old path does not exist any more.

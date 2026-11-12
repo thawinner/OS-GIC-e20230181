@@ -1,0 +1,6 @@
+<notes/tiger12.txt>
+<notes/tiger1.txt>
+<notes/tiger2.txt>
+<notes/tiger1.txt>
+<notes/tiger2.txt>
+<notes/*.txt>

@@ -1,0 +1,9 @@
+
+=== NEW FILE USING THE OLD NAME ===
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-hard.txt
+19142246 -rw-rw-r-- 2 gic-tha-winner gic-tha-winner 12 Nov 12 08:06 tiger-saved.txt
+19143083 lrwxrwxrwx 1 gic-tha-winner gic-tha-winner  9 Nov 12 23:02 tiger-soft.txt -> tiger.txt
+19143085 -rw-rw-r-- 1 gic-tha-winner gic-tha-winner 12 Nov 12 23:04 tiger.txt
+tiger.txt: version 356
+hard: version 306
+soft: version 356
