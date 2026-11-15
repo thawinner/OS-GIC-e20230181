@@ -1,0 +1,139 @@
+  267  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  268  pwd
+  269  nproc
+  270  nano threads.c
+  271  grep -c "int main" threads.c
+  272  wc -l threads.c
+  273  gcc -o threads threads.c -pthread
+  274  ./threads
+  275  nproc
+  276  ./threads | tail -3
+  277  ./threads > result_threads.txt 2>&1
+  278  cat result_threads.txt
+  279  nano threads_mutex.c
+  280  grep -c "int main" threads_mutex.c
+  281  wc -l threads_mutex.c
+  282  gcc -o threads_mutex threads_mutex.c -pthread
+  283  ./threads_mutex | tail -3
+  284  ./threads_mutex > result_threads_mutex.txt 2>&1
+  285  cat result_threads_mutex.txt
+  286  clear
+  287  cat result_threads.txt
+  288  cat result_threads_mutex.txt
+  289  sed 's/pthread_join(threads\[i\], NULL);/\/\* join removed \*\//' threads.c > /tmp/threads_nojoin.c
+  290  grep -n "join" /tmp/threads_nojoin.c
+  291  gcc -o /tmp/threads_nojoin /tmp/threads_nojoin.c -pthread
+  292  /tmp/threads_nojoin
+  293  history | awk '!s && /cd .*activity3\/task2_threads/ {s=1} s' > command_used_threads.txt
+  294  cat command_used_threads.txt
+  295  ls ../screenshots/
+  296  cd ~/os-gic-e20230181
+  297  git add os-class-activities-e20230181/activity3/task2_threads/threads.c
+  298  git add os-class-activities-e20230181/activity3/task2_threads/threads_mutex.c
+  299  git add os-class-activities-e20230181/activity3/task2_threads/result_threads.txt
+  300  git add os-class-activities-e20230181/activity3/task2_threads/result_threads_mutex.txt
+  301  git add os-class-activities-e20230181/activity3/task2_threads/command_used_threads.txt
+  302  git add os-class-activities-e20230181/activity3/screenshots/task2_threads_output.png
+  303  git status
+  304  git commit -m "Activity 3: Task 2 pthreads race condition and mutex fix"
+  305  git push origin main
+--- Task 4 (observe threads) ---
+  358  nano threads_observe.c
+  359  ls -l threads_observe.c
+  360  wc -l threads_observe.c
+  361  head -3 threads_observe.c
+  362  nano threads_observe.c
+  363  gcc -o threads_observe threads_observe.c -pthread
+  364  ./threads_observe &
+  365  PID=$!
+  366  echo "My PID is $PID"
+  367  ps -T -p $PID
+  368  ls /proc/$PID/task/
+  369  wc -l threads_observe.c
+  370  nano threads_observe.c
+  371  wc -l threads_observe.c
+  372  head -3 threads_observe.c
+  373  gcc -o threads_observe threads_observe.c -pthread
+  374  ls
+  375  ./threads_observe &
+  376  PID=$!
+  377  echo "My PID is $PID"
+  378  ps -T -p $PID
+  379  ls /proc/$PID/task/
+  380  tail -n 2 threads_observe.c | cat -A
+  381  sed -i -e '$a\' threads_observe.c
+  382  wc -l threads_observe.c
+  383  grep -n '^$' threads_observe.c
+  384  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  385  PID=$!
+  386  sleep 1
+  387  echo "=== ps -eLf | grep threads_observe ===" > result_observe_linux.txt
+  388  ps -eLf | grep threads_observe >> result_observe_linux.txt
+  389  echo "=== ps -T -p $PID ===" >> result_observe_linux.txt
+  390  ps -T -p $PID >> result_observe_linux.txt
+  391  echo "--- /proc/$PID/task/ listing ---" >> result_observe_linux.txt
+  392  ls /proc/$PID/task/ >> result_observe_linux.txt
+  393  echo "=== ps -L (threads) and ps --ppid 2 (kernel threads) ===" >> result_observe_linux.txt
+  394  { ps -L -o pid,lwp,nlwp,psr,stat,comm -p $PID; ps --ppid 2 -o pid,ppid,psr,comm | head -15; } >> result_observe_linux.txt
+  395  cat result_observe_linux.txt
+  396  htop
+  397  grep "^screen:Main" ~/.config/htop/htoprc
+  398  htop
+  399  grep "^screen:Main" ~/.config/htop/htoprc
+  400  sed -i 's/^\(screen:Main=.*\)TIME Command/\1TIME PROCESSOR NLWP Command/' ~/.config/htop/htoprc
+  401  grep "^screen:Main" ~/.config/htop/htoprc
+  402  htop
+  403  sed -i 's/^\(screen:Main=.*\)TIME Command/\1TIME PROCESSOR NLWP Command/' ~/.config/htop/htoprc
+  404  htop
+  405  sed -i 's/^\(screen:Main=.*\)TIME Command/\1TIME PROCESSOR NLWP Command/' ~/.config/htop/htoprc
+  406  htop
+  407  sed -i 's/^hide_kernel_threads=1/hide_kernel_threads=0/' ~/.config/htop/htoprc
+  408  grep "^hide_kernel_threads" ~/.config/htop/htoprc
+  409  htop -t
+  410  history | awk '!s && /htoprc/ {s=1} s' >> ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads/command_used_threads.txt
+  411  F=~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads/command_used_threads.txt
+  412  echo "--- Task 4 (observe threads) ---" >> $F
+  413  history | awk '!s && /^ *[0-9]+ +nano threads_observe\.c$/ {s=1} s' >> $F
+  306  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  307  echo $!
+  308  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  309  echo $!
+  310  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  311  echo $!
+  312  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  313  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  314  echo $!
+  315  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  316  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  317  echo $!
+  318  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  319  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  320  echo $!
+  321  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  322  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  323  echo $!
+  324  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  325  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  326  echo $!
+  327  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  328  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  329  echo $!
+  330  pkill threads_observe
+  331  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  332  echo $!
+  333  ./threads_observe > /tmp/observe_out.txt 2>&1 &
+  334  PID=$!
+  335  clear
+  336  ps -L -o pid,lwp,nlwp,psr,stat,comm -p $PID
+  337  ps -o pid,ppid,psr,comm -p 2
+  338  ps --ppid 2 -o pid,ppid,psr,comm | head -15
+  339  mv ~/os-gic-e20230181/os-class-activities-e20230181/activity3/screenshots/task4_kernel_threads.png ~/ 2>/dev/null
+  340  pkill threads_observe
+  341  ls ~/os-gic-e20230181/os-class-activities-e20230181/activity3/screenshots/
+  342  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task2_threads
+  343  echo "--- Task 4 (observe threads) ---" >> command_used_threads.txt
+  344  history | awk '!s && /nano threads_observe.c/ {s=1} s' >> command_used_threads.txt
+  345  tail -n 40 command_used_threads.txt
+  346  sed -i '/^--- Task 4 (observe threads) ---$/,$d' command_used_threads.txt
+  347  tail -n 3 command_used_threads.txt
+  348  history | awk '!s && /^ *[0-9]+ +\.\/threads_observe > \/tmp/ {s=1} s' >> command_used_threads.txt
