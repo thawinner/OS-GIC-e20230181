@@ -1,0 +1,38 @@
+  243  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task3_java
+  244  pwd
+  245  nano ThreadDemo.java
+  246  grep -c "public static void main" ThreadDemo.java
+  247  wc -l ThreadDemo.java
+  248  javac ThreadDemo.java
+  249  ls
+  250  java ThreadDemo > result_thread_demo.txt 2>&1
+  251  cat result_thread_demo.txt
+  252  nano RunnableDemo.java
+  253  grep -c "public static void main" RunnableDemo.java
+  254  wc -l RunnableDemo.java
+  255  javac RunnableDemo.java
+  256  ls
+  257  java RunnableDemo > result_runnable_demo.txt 2>&1
+  258  cat result_runnable_demo.txt
+  259  tail -n 2 RunnableDemo.java | cat -A
+  260  sed -i '${/^$/d}' RunnableDemo.java
+  261  wc -l RunnableDemo.java
+  262  nano PoolDemo.java
+  263  grep -c "public static void main" PoolDemo.java
+  264  wc -l PoolDemo.java
+  265  javac PoolDemo.java
+  266  java PoolDemo > result_pool_demo.txt 2>&1
+  267  cat result_pool_demo.txt
+  268  sed -i '${/^$/d}' RunnableDemo.java
+  269  sed -i '${/^$/d}' PoolDemo.java
+  270  wc -l ThreadDemo.java RunnableDemo.java PoolDemo.java
+  271  clear
+  272  cat result_thread_demo.txt
+  273  cat result_runnable_demo.txt
+  274  cat result_pool_demo.txt
+  275  mkdir -p /tmp/nojoin
+  276  sed '/t[123]\.join();/d' ThreadDemo.java > /tmp/nojoin/ThreadDemo.java
+  277  grep -n "join" /tmp/nojoin/ThreadDemo.java
+  278  javac /tmp/nojoin/ThreadDemo.java
+  279  java -cp /tmp/nojoin ThreadDemo
+  280  history | awk '!s && /cd .*activity3\/task3_java/ {s=1} s' > command_used_java.txt
