@@ -1,0 +1,12 @@
+  243  cd ~/os-gic-e20230181/os-class-activities-e20230181/activity3/task1_socket
+  244  ./client
+  245  ./server > result_server.txt 2>&1 &
+  246  sleep 1
+  247  ./client > result_client.txt 2>&1
+  248  wait
+  249  cat result_server.txt result_client.txt > result_socket.txt
+  250  cat result_socket.txt
+  251  history | tail -n 20 > command_used_socket.txt
+  252  cat command_used_socket.txt
+  253  ls
+  254  history | awk '$1 >= 243' > command_used_socket.txt
